@@ -1,0 +1,9 @@
+
+
+the music player plays music, the music trigger contains a little bit of music info on the track to be played and how its triggered.
+thats really all there is to say on the matter.
+dont think i need to add anything. if i ever have a need i can. 
+theres a bunch of things in here that i think are gonna kinda be that way. like hm, do i need to add anything to this?
+but nah, i dont. anyways, im gonna go left to right and check everything. ill leave a txt showing whether its proto good for now. only way i can know is doing another
+game and seeing if i need new features.
+

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cjkq6uc4bil48"
+path="res://.godot/imported/unecessary tension.ogg-ac3daa794e8309706bd657d49363f87c.oggvorbisstr"
+
+[deps]
+
+source_file="res://raw_assets/test_audio/music/unecessary tension.ogg"
+dest_files=["res://.godot/imported/unecessary tension.ogg-ac3daa794e8309706bd657d49363f87c.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

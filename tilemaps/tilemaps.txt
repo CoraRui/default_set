@@ -1,0 +1,2 @@
+want to have different tilemaps with different types of effects and stuff. parallax, looping, etc.
+later though. dont know how effective that will be for this jam.

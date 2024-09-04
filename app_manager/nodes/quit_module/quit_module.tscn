@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3iwk2oxxkst"]
+
+[ext_resource type="Script" path="res://app_manager/nodes/quit_module/quit_module.gd" id="1_eggac"]
+
+[node name="quit_module" type="Node2D"]
+script = ExtResource("1_eggac")

@@ -1,0 +1,23 @@
+
+
+	what kind of tools do i want to have made in advance for game jams and such?
+	
+		X audio/sfx/music players
+		
+		X Direction, maybe other enumerators
+		
+		X TODO manager and asset drawer plugins
+		
+		X sprite art defaults
+		
+		X window management, simple resize
+		
+		X debug autoload with test input/debug messages
+		
+		X save file system 
+		
+		X basic ui system
+		
+		X basic scene loading
+		
+		some sort of basic player movement script/player loading

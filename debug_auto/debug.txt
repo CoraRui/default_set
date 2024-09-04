@@ -1,0 +1,3 @@
+ok for now, can still add as needed. to be honest this isnt a super necessary one anyways. 
+its not like print does anything bad other than gum up error messages.
+i just added a couple tags. nothing crazy. i can add whatever tags i need when the time comes.

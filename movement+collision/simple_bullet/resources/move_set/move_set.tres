@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="move_set" load_steps=2 format=3 uid="uid://bp8p3yc2ycroj"]
+
+[ext_resource type="Script" path="res://movement+collision/simple_bullet/resources/move_set/move_set.gd" id="1_5s1ry"]
+
+[resource]
+script = ExtResource("1_5s1ry")
+vel_vec = Vector2(0, 0)

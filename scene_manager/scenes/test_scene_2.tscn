@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bjffaorm0704"]
+
+[node name="test_scene" type="Node2D"]
+
+[node name="test_label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "testinttestingaing222
+"

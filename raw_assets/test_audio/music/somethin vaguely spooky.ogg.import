@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://djho87fyg8cjr"
+path="res://.godot/imported/somethin vaguely spooky.ogg-6aeb4ab7e768f0fddbabdb15464c1810.oggvorbisstr"
+
+[deps]
+
+source_file="res://raw_assets/test_audio/music/somethin vaguely spooky.ogg"
+dest_files=["res://.godot/imported/somethin vaguely spooky.ogg-6aeb4ab7e768f0fddbabdb15464c1810.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

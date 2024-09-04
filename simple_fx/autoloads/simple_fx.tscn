@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=3 uid="uid://jge3wy0rnjf0"]
+
+[ext_resource type="Script" path="res://simple_fx/autoloads/simple_fx.gd" id="1_jj0pr"]
+[ext_resource type="PackedScene" uid="uid://bd1po4tb1ecam" path="res://simple_fx/nodes/explosion_one.tscn" id="2_qcl4p"]
+[ext_resource type="Script" path="res://simple_fx/resources/fx_ref.gd" id="3_sie6x"]
+
+[sub_resource type="Resource" id="Resource_k2gn5"]
+script = ExtResource("3_sie6x")
+name = "explosion_one"
+ref = ExtResource("2_qcl4p")
+
+[node name="simple_fx" type="Node2D"]
+script = ExtResource("1_jj0pr")
+fx_arr = Array[ExtResource("3_sie6x")]([SubResource("Resource_k2gn5")])

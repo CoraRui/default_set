@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://cf88v8jihdw8h"]
+
+[ext_resource type="Script" path="res://ui/simple_select/nodes/simple_select/simple_select.gd" id="1_qr182"]
+[ext_resource type="Script" path="res://ui/simple_select/nodes/group/group.gd" id="2_h0hoo"]
+[ext_resource type="Script" path="res://ui/simple_select/nodes/option/option.gd" id="3_ca0tr"]
+[ext_resource type="PackedScene" uid="uid://ctgfb3nn5ssjb" path="res://scene_manager/nodes/scene_module.tscn" id="4_hj020"]
+[ext_resource type="Script" path="res://scene_manager/resource/scene_link.gd" id="5_e64uu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0wb2l"]
+
+[sub_resource type="Resource" id="Resource_80ng3"]
+script = ExtResource("5_e64uu")
+scene_name = "test_scene"
+
+[node name="main_menu" type="Node2D"]
+
+[node name="simple_select" type="Node2D" parent="." node_paths=PackedStringArray("active_option", "active_group", "icon")]
+script = ExtResource("1_qr182")
+active_option = NodePath("group_one/start_option")
+active_group = NodePath("group_one")
+icon = NodePath("icon")
+
+[node name="group_one" type="Node2D" parent="simple_select" node_paths=PackedStringArray("options")]
+script = ExtResource("2_h0hoo")
+options = [NodePath("start_option"), null, null, null]
+
+[node name="start_option" type="Node2D" parent="simple_select/group_one" node_paths=PackedStringArray("icon_point", "option_label", "down_option")]
+position = Vector2(78, 125)
+script = ExtResource("3_ca0tr")
+icon_point = NodePath("icon_point")
+option_label = NodePath("option_text")
+option_name = "start"
+down_option = NodePath("../settings_option")
+
+[node name="option_text" type="Label" parent="simple_select/group_one/start_option"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 10
+text = "start"
+
+[node name="icon_point" type="Node2D" parent="simple_select/group_one/start_option"]
+position = Vector2(-7, 8)
+
+[node name="settings_option" type="Node2D" parent="simple_select/group_one" node_paths=PackedStringArray("icon_point", "option_label", "up_option", "down_option")]
+position = Vector2(25, 158)
+script = ExtResource("3_ca0tr")
+icon_point = NodePath("icon_point")
+option_label = NodePath("option_text")
+option_name = "options"
+up_option = NodePath("../start_option")
+down_option = NodePath("../quit_option")
+
+[node name="option_text" type="Label" parent="simple_select/group_one/settings_option"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 10
+text = "settings"
+
+[node name="icon_point" type="Node2D" parent="simple_select/group_one/settings_option"]
+position = Vector2(-7, 8)
+
+[node name="quit_option" type="Node2D" parent="simple_select/group_one" node_paths=PackedStringArray("icon_point", "option_label", "up_option")]
+position = Vector2(136, 157)
+script = ExtResource("3_ca0tr")
+icon_point = NodePath("icon_point")
+option_label = NodePath("option_text")
+option_name = "quit"
+up_option = NodePath("../settings_option")
+
+[node name="option_text" type="Label" parent="simple_select/group_one/quit_option"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 10
+text = "quit"
+
+[node name="icon_point" type="Node2D" parent="simple_select/group_one/quit_option"]
+position = Vector2(-7, 8)
+
+[node name="icon" type="AnimatedSprite2D" parent="simple_select"]
+sprite_frames = SubResource("SpriteFrames_0wb2l")
+
+[node name="temp_icon" type="ColorRect" parent="simple_select/icon"]
+offset_right = 4.0
+offset_bottom = 4.0
+
+[node name="scene_module" parent="." instance=ExtResource("4_hj020")]
+link = SubResource("Resource_80ng3")

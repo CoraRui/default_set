@@ -1,0 +1,13 @@
+i want some sort of extremely basic system to handle the switching of scenes.
+
+i mean, its pretty dumbed down as it is in godot
+
+but i want something a little more organized.
+
+something really similar to the way the music_player handles things honestly lol
+
+just like, type in a string, and load in that scene, maybe some transition effects with like
+
+a color rect. and keeping track of how many scenes are loaded, getting rid of the last one, etc.
+
+it might even only be for like the title screen or something. but itd be nice.

@@ -1,0 +1,3 @@
+
+ok i think the basics is worked out. the most basic function (place_fx) is written, which just
+places the effect object described in fx_link into the root. this is good, i can tweak it/add more objects when i use it.

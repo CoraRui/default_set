@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1gnhtuiaco4v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pk4th"]
+size = Vector2(11, 11)
+
+[node name="player" type="Node2D"]
+
+[node name="color_rect" type="ColorRect" parent="."]
+offset_right = 11.0
+offset_bottom = 11.0
+color = Color(0.733333, 0, 0.0666667, 1)
+
+[node name="hit_box" type="Area2D" parent="."]
+
+[node name="hit_shape" type="CollisionShape2D" parent="hit_box"]
+position = Vector2(5.5, 5.5)
+shape = SubResource("RectangleShape2D_pk4th")

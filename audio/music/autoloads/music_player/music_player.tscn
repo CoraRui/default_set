@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://cexfi2rjpsylm"]
+
+[ext_resource type="Script" path="res://audio/music/autoloads/music_player/music_player.gd" id="1_k0xtw"]
+[ext_resource type="AudioStream" uid="uid://cjkq6uc4bil48" path="res://raw_assets/test_audio/music/unecessary tension.ogg" id="2_f5pt7"]
+[ext_resource type="Script" path="res://audio/music/resources/track/track.gd" id="2_fm0ua"]
+
+[sub_resource type="Resource" id="Resource_kcy68"]
+script = ExtResource("2_fm0ua")
+track_name = "tension"
+music_file = ExtResource("2_f5pt7")
+
+[sub_resource type="Resource" id="Resource_wkufu"]
+script = ExtResource("2_fm0ua")
+track_name = "none"
+
+[node name="music_player" type="Node2D" node_paths=PackedStringArray("stream_player")]
+script = ExtResource("1_k0xtw")
+stream_player = NodePath("stream_player")
+music_arr = Array[ExtResource("2_fm0ua")]([SubResource("Resource_kcy68")])
+fail_track = SubResource("Resource_wkufu")
+
+[node name="tracks" type="Node2D" parent="."]
+
+[node name="stream_player" type="AudioStreamPlayer" parent="."]

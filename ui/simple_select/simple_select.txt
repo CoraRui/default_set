@@ -1,0 +1,7 @@
+
+ok i dont actually know how to use this to make new things.
+for right now, just use group and option to make new systems. ill
+make something simple to test it out.
+annoying thing number one is that you have to make the options local in order to directly edit their 
+text values in editor. or else it only changes on load.
+its not really that huge of a deal unless you need to change the option class, but keep it in mind.

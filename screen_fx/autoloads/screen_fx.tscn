@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctcng17gcckqy"]
+
+[ext_resource type="Script" path="res://screen_fx/autoloads/screen_fx.gd" id="1_fap58"]
+
+[node name="screen_fx" type="Node2D" node_paths=PackedStringArray("screen_rect")]
+script = ExtResource("1_fap58")
+screen_rect = NodePath("white_screen")
+
+[node name="white_screen" type="ColorRect" parent="."]
+offset_right = 200.0
+offset_bottom = 200.0
+color = Color(1, 1, 1, 0)

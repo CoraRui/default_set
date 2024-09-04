@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://dl3i1hitgg2po"]
+
+[ext_resource type="Script" path="res://ui/simple_select/nodes/simple_select/simple_select.gd" id="1_nxnlu"]
+[ext_resource type="PackedScene" uid="uid://it44dk608hic" path="res://ui/simple_select/nodes/group/group.tscn" id="2_l4jso"]
+[ext_resource type="PackedScene" uid="uid://bi5ic10ft2m2o" path="res://ui/simple_select/nodes/option/option.tscn" id="3_fw5uv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0wb2l"]
+
+[node name="simple_select" type="Node2D" node_paths=PackedStringArray("active_option", "active_group", "icon")]
+script = ExtResource("1_nxnlu")
+active_option = NodePath("group_one/option_one")
+active_group = NodePath("group_one")
+icon = NodePath("icon")
+
+[node name="group_one" parent="." node_paths=PackedStringArray("options") instance=ExtResource("2_l4jso")]
+options = [NodePath("option_one"), NodePath(""), NodePath(""), NodePath("")]
+
+[node name="option_one" parent="group_one" node_paths=PackedStringArray("up_option", "down_option") instance=ExtResource("3_fw5uv")]
+up_option = NodePath("../option_four")
+down_option = NodePath("../option_two")
+
+[node name="option_two" parent="group_one" node_paths=PackedStringArray("up_option", "down_option") instance=ExtResource("3_fw5uv")]
+position = Vector2(0, 33)
+up_option = NodePath("../option_one")
+down_option = NodePath("../option_three")
+
+[node name="option_three" parent="group_one" node_paths=PackedStringArray("up_option", "down_option") instance=ExtResource("3_fw5uv")]
+position = Vector2(-2, 56)
+up_option = NodePath("../option_two")
+down_option = NodePath("../option_four")
+
+[node name="option_four" parent="group_one" node_paths=PackedStringArray("up_option", "down_option") instance=ExtResource("3_fw5uv")]
+position = Vector2(0, 80)
+up_option = NodePath("../option_three")
+down_option = NodePath("../option_one")
+
+[node name="icon" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0wb2l")
+
+[node name="temp_icon" type="ColorRect" parent="icon"]
+offset_right = 4.0
+offset_bottom = 4.0

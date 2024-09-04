@@ -1,0 +1,2 @@
+just a node to sit on root and do initial stuff. i guess i could add a bunch of autoload references. but who cares lol, 
+anything id do would probably be on the scene that i load in. whatever ill do it.

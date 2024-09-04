@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://7ogx55kxjhu7"]
+
+[ext_resource type="Script" path="res://audio/sfx/autoloads/sfx_player.gd" id="1_s02h6"]
+[ext_resource type="Script" path="res://audio/sfx/resources/sf_track.gd" id="2_uk66r"]
+[ext_resource type="AudioStream" uid="uid://bgu15vaj1kfli" path="res://raw_assets/test_audio/sfx/blip.ogg" id="3_qditg"]
+[ext_resource type="AudioStream" uid="uid://dbmshy5x1weqc" path="res://raw_assets/test_audio/sfx/crxch.ogg" id="4_vxw6p"]
+
+[sub_resource type="Resource" id="Resource_txe5s"]
+script = ExtResource("2_uk66r")
+sf_name = "blip"
+sf_ref = ExtResource("3_qditg")
+
+[sub_resource type="Resource" id="Resource_qlpeg"]
+script = ExtResource("2_uk66r")
+sf_name = "crx"
+sf_ref = ExtResource("4_vxw6p")
+
+[sub_resource type="Resource" id="Resource_0w0wl"]
+script = ExtResource("2_uk66r")
+sf_name = "fail_blip"
+sf_ref = ExtResource("3_qditg")
+
+[node name="sfx_player" type="Node2D" node_paths=PackedStringArray("sp_arr")]
+script = ExtResource("1_s02h6")
+sp_arr = [NodePath("sp_0"), NodePath("sp_1"), NodePath("sp_2"), NodePath("sp_3"), NodePath("sp_4"), NodePath("sp_5"), NodePath("sp_6"), NodePath("sp_7"), NodePath("sp_8"), NodePath("sp_9"), NodePath("sp_10"), NodePath("sp_11"), NodePath("sp_12"), NodePath("sp_13"), NodePath("sp_14"), NodePath("sp_15")]
+sf_arr = Array[ExtResource("2_uk66r")]([SubResource("Resource_txe5s"), SubResource("Resource_qlpeg")])
+fail_sf = SubResource("Resource_0w0wl")
+
+[node name="sp_0" type="AudioStreamPlayer" parent="."]
+
+[node name="sp_1" type="AudioStreamPlayer" parent="."]
+
+[node name="sp_2" type="AudioStreamPlayer" parent="."]
+
+[node name="sp_3" type="AudioStreamPlayer" parent="."]
+
+[node name="sp_4" type="AudioStreamPlayer" parent="."]
+
+[node name="sp_5" type="AudioStreamPlayer" parent="."]
+
+[node name="sp_6" type="AudioStreamPlayer" parent="."]
+
+[node name="sp_7" type="AudioStreamPlayer" parent="."]
+
+[node name="sp_8" type="AudioStreamPlayer" parent="."]
+
+[node name="sp_9" type="AudioStreamPlayer" parent="."]
+
+[node name="sp_10" type="AudioStreamPlayer" parent="."]
+
+[node name="sp_11" type="AudioStreamPlayer" parent="."]
+
+[node name="sp_12" type="AudioStreamPlayer" parent="."]
+
+[node name="sp_13" type="AudioStreamPlayer" parent="."]
+
+[node name="sp_14" type="AudioStreamPlayer" parent="."]
+
+[node name="sp_15" type="AudioStreamPlayer" parent="."]

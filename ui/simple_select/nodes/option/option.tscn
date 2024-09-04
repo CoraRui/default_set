@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi5ic10ft2m2o"]
+
+[ext_resource type="Script" path="res://ui/simple_select/nodes/option/option.gd" id="1_7n5vn"]
+
+[node name="option" type="Node2D" node_paths=PackedStringArray("icon_point", "option_label")]
+script = ExtResource("1_7n5vn")
+icon_point = NodePath("icon_point")
+option_label = NodePath("option_text")
+
+[node name="option_text" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "option_text_def"
+
+[node name="icon_point" type="Node2D" parent="."]
+position = Vector2(-7, 8)

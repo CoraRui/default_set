@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://okc2ogp834xv"]
+
+[ext_resource type="Script" path="res://audio/music/nodes/music_trigger/music_trigger.gd" id="1_n2vel"]
+[ext_resource type="Script" path="res://audio/music/resources/music_link/music_link.gd" id="2_in4nt"]
+
+[sub_resource type="Resource" id="Resource_o2gb2"]
+script = ExtResource("2_in4nt")
+track_name = "default_track"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdsrl"]
+
+[node name="music_trigger" type="Node2D"]
+position = Vector2(119, 53)
+script = ExtResource("1_n2vel")
+trig_link = SubResource("Resource_o2gb2")
+
+[node name="mt_area" type="Area2D" parent="."]
+
+[node name="mt_shape" type="CollisionShape2D" parent="mt_area"]
+shape = SubResource("RectangleShape2D_xdsrl")
+
+[connection signal="area_entered" from="mt_area" to="." method="_on_mt_area_area_entered"]
+[connection signal="body_entered" from="mt_area" to="." method="_on_mt_area_body_entered"]
