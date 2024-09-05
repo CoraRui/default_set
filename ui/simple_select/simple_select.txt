@@ -1,7 +1,18 @@
 
-ok i dont actually know how to use this to make new things.
-for right now, just use group and option to make new systems. ill
-make something simple to test it out.
-annoying thing number one is that you have to make the options local in order to directly edit their 
-text values in editor. or else it only changes on load.
-its not really that huge of a deal unless you need to change the option class, but keep it in mind.
+
+simple select works with three things:
+	
+	simple_select
+	groups
+	options
+	
+	the simple select object contains everything, and reads player input.
+	
+	the group object contains a set of options which can be selected by the player.
+	each option can point to a different group which will be focused on when the option is selected.
+	
+	each option contains signals to perform different tasks.
+	
+	you have to reset like ALL OF THE FUCKING exports cause you're creating new things. whatever, deal with it.
+
+	good enough for now

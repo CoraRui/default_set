@@ -1,0 +1,131 @@
+[gd_scene load_steps=5 format=3 uid="uid://c38puws6vgyjv"]
+
+[ext_resource type="Script" path="res://ui/simple_select/nodes/simple_select/simple_select.gd" id="1_kf0so"]
+[ext_resource type="Script" path="res://ui/simple_select/nodes/group/group.gd" id="2_esvtm"]
+[ext_resource type="Script" path="res://ui/simple_select/nodes/option/option.gd" id="3_by6au"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0wb2l"]
+
+[node name="simple_select" type="Node2D" node_paths=PackedStringArray("active_option", "active_group", "icon")]
+script = ExtResource("1_kf0so")
+active_option = NodePath("group_one/option_one")
+active_group = NodePath("group_one")
+icon = NodePath("icon")
+
+[node name="group_one" type="Node2D" parent="." node_paths=PackedStringArray("options")]
+position = Vector2(36, 8)
+script = ExtResource("2_esvtm")
+options = [NodePath("option_one"), NodePath("option_two"), NodePath("option_three")]
+
+[node name="option_one" type="Node2D" parent="group_one" node_paths=PackedStringArray("icon_point", "option_label", "target_group", "down_option")]
+position = Vector2(8, 14)
+script = ExtResource("3_by6au")
+icon_point = NodePath("icon_point")
+option_label = NodePath("option_text")
+target_group = NodePath("../../group_two")
+down_option = NodePath("../option_two")
+
+[node name="option_text" type="Label" parent="group_one/option_one"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 10
+text = "broken but whatever gotta eat"
+
+[node name="icon_point" type="Node2D" parent="group_one/option_one"]
+position = Vector2(-7, 8)
+
+[node name="option_two" type="Node2D" parent="group_one" node_paths=PackedStringArray("icon_point", "option_label", "up_option", "down_option")]
+position = Vector2(8, 32)
+script = ExtResource("3_by6au")
+icon_point = NodePath("icon_point")
+option_label = NodePath("option_text")
+up_option = NodePath("../option_one")
+down_option = NodePath("../option_three")
+
+[node name="option_text" type="Label" parent="group_one/option_two"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 10
+text = "option two
+"
+
+[node name="icon_point" type="Node2D" parent="group_one/option_two"]
+position = Vector2(-7, 8)
+
+[node name="option_three" type="Node2D" parent="group_one" node_paths=PackedStringArray("icon_point", "option_label", "up_option")]
+position = Vector2(8, 52)
+script = ExtResource("3_by6au")
+icon_point = NodePath("icon_point")
+option_label = NodePath("option_text")
+up_option = NodePath("../option_two")
+
+[node name="option_text" type="Label" parent="group_one/option_three"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 10
+text = "option three
+"
+
+[node name="icon_point" type="Node2D" parent="group_one/option_three"]
+position = Vector2(-7, 8)
+
+[node name="icon" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0wb2l")
+
+[node name="temp_icon" type="ColorRect" parent="icon"]
+offset_right = 4.0
+offset_bottom = 4.0
+
+[node name="group_two" type="Node2D" parent="." node_paths=PackedStringArray("options")]
+visible = false
+position = Vector2(36, 122)
+script = ExtResource("2_esvtm")
+options = [NodePath("option"), NodePath("option2"), NodePath("option3")]
+
+[node name="option" type="Node2D" parent="group_two" node_paths=PackedStringArray("icon_point", "option_label", "down_option")]
+script = ExtResource("3_by6au")
+icon_point = NodePath("icon_point")
+option_label = NodePath("option_text")
+down_option = NodePath("../option2")
+
+[node name="option_text" type="Label" parent="group_two/option"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 10
+text = "option one"
+
+[node name="icon_point" type="Node2D" parent="group_two/option"]
+position = Vector2(-7, 8)
+
+[node name="option2" type="Node2D" parent="group_two" node_paths=PackedStringArray("icon_point", "option_label", "up_option", "down_option")]
+position = Vector2(2, 19)
+script = ExtResource("3_by6au")
+icon_point = NodePath("icon_point")
+option_label = NodePath("option_text")
+up_option = NodePath("../option")
+down_option = NodePath("../option3")
+
+[node name="option_text" type="Label" parent="group_two/option2"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 10
+text = "option two"
+
+[node name="icon_point" type="Node2D" parent="group_two/option2"]
+position = Vector2(-7, 8)
+
+[node name="option3" type="Node2D" parent="group_two" node_paths=PackedStringArray("icon_point", "option_label", "up_option")]
+position = Vector2(0, 38)
+script = ExtResource("3_by6au")
+icon_point = NodePath("icon_point")
+option_label = NodePath("option_text")
+up_option = NodePath("../option2")
+
+[node name="option_text" type="Label" parent="group_two/option3"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 10
+text = "option three"
+
+[node name="icon_point" type="Node2D" parent="group_two/option3"]
+position = Vector2(-7, 8)

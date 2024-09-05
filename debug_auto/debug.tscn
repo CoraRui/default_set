@@ -15,5 +15,6 @@ tag_dict = {
 "scr_fx": false,
 "sfx_pla": false,
 "sim_sel": false,
-"til_map": false
+"til_map": false,
+"txt_box": true
 }

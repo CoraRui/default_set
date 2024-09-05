@@ -1,36 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8es3a2l5ahgp"]
+[gd_scene load_steps=2 format=3 uid="uid://c8es3a2l5ahgp"]
 
 [ext_resource type="PackedScene" uid="uid://bnjw26dur55t1" path="res://game_init/nodes/game_init.tscn" id="1_3y1d5"]
-[ext_resource type="PackedScene" uid="uid://bkal3ic4bccmv" path="res://ui/text_box/nodes/text_module.tscn" id="1_y4y40"]
-[ext_resource type="Script" path="res://ui/text_box/resources/command_set.gd" id="2_disb5"]
-
-[sub_resource type="Resource" id="Resource_0rjuv"]
-script = ExtResource("2_disb5")
-comm = 0
-par_dict = {}
-
-[sub_resource type="Resource" id="Resource_e0a5q"]
-script = ExtResource("2_disb5")
-comm = 2
-par_dict = {
-"text": "write this to text box"
-}
-
-[sub_resource type="Resource" id="Resource_trn6q"]
-script = ExtResource("2_disb5")
-comm = 4
-par_dict = {}
-
-[sub_resource type="Resource" id="Resource_ap06n"]
-script = ExtResource("2_disb5")
-comm = 2
-par_dict = {}
 
 [node name="root" type="Node2D"]
-
-[node name="text_module" parent="." instance=ExtResource("1_y4y40")]
-send_on_ready = true
-c_set = Array[ExtResource("2_disb5")]([SubResource("Resource_0rjuv"), SubResource("Resource_e0a5q"), SubResource("Resource_trn6q"), SubResource("Resource_ap06n")])
 
 [node name="windowTest" type="ColorRect" parent="."]
 visible = false

@@ -11,3 +11,6 @@ just like, type in a string, and load in that scene, maybe some transition effec
 a color rect. and keeping track of how many scenes are loaded, getting rid of the last one, etc.
 
 it might even only be for like the title screen or something. but itd be nice.
+
+
+Add a basic title screen, intro, and a settings screen

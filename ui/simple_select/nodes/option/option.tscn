@@ -10,6 +10,7 @@ option_label = NodePath("option_text")
 [node name="option_text" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
+theme_override_font_sizes/font_size = 10
 text = "option_text_def"
 
 [node name="icon_point" type="Node2D" parent="."]

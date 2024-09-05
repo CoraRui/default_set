@@ -1,0 +1,99 @@
+[gd_scene load_steps=10 format=3 uid="uid://c5jk4ln62o20c"]
+
+[ext_resource type="Script" path="res://scene_manager/scenes/main_menu/settings_menu/settings.gd" id="1_cg2ys"]
+[ext_resource type="Script" path="res://ui/simple_select/nodes/simple_select/simple_select.gd" id="2_essgq"]
+[ext_resource type="Script" path="res://ui/simple_select/nodes/group/group.gd" id="3_oep1j"]
+[ext_resource type="Script" path="res://ui/simple_select/nodes/option/option.gd" id="4_m56pt"]
+[ext_resource type="PackedScene" uid="uid://ctgfb3nn5ssjb" path="res://scene_manager/nodes/scene_module.tscn" id="5_2xpqy"]
+[ext_resource type="Script" path="res://scene_manager/resource/scene_link.gd" id="6_u4c8r"]
+
+[sub_resource type="Resource" id="Resource_782ps"]
+script = ExtResource("6_u4c8r")
+scene_name = "start"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0wb2l"]
+
+[sub_resource type="Resource" id="Resource_80ng3"]
+script = ExtResource("6_u4c8r")
+scene_name = "test_scene"
+
+[node name="settings" type="Node2D"]
+script = ExtResource("1_cg2ys")
+start_link = SubResource("Resource_782ps")
+
+[node name="main_menu" type="Node2D" parent="."]
+
+[node name="simple_select" type="Node2D" parent="main_menu" node_paths=PackedStringArray("active_option", "active_group", "icon")]
+script = ExtResource("2_essgq")
+active_option = NodePath("group_one/back")
+active_group = NodePath("group_one")
+icon = NodePath("icon")
+
+[node name="group_one" type="Node2D" parent="main_menu/simple_select" node_paths=PackedStringArray("options")]
+script = ExtResource("3_oep1j")
+options = [NodePath("main_volume"), null, null, null]
+
+[node name="main_volume" type="Node2D" parent="main_menu/simple_select/group_one" node_paths=PackedStringArray("icon_point", "option_label", "down_option")]
+position = Vector2(13, 16)
+script = ExtResource("4_m56pt")
+icon_point = NodePath("icon_point")
+option_label = NodePath("option_text")
+option_name = "start"
+down_option = NodePath("../music_volume")
+
+[node name="option_text" type="Label" parent="main_menu/simple_select/group_one/main_volume"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 10
+text = "main volume"
+
+[node name="icon_point" type="Node2D" parent="main_menu/simple_select/group_one/main_volume"]
+position = Vector2(-7, 8)
+
+[node name="music_volume" type="Node2D" parent="main_menu/simple_select/group_one" node_paths=PackedStringArray("icon_point", "option_label", "up_option", "down_option")]
+position = Vector2(14, 36)
+script = ExtResource("4_m56pt")
+icon_point = NodePath("icon_point")
+option_label = NodePath("option_text")
+option_name = "options"
+up_option = NodePath("../main_volume")
+down_option = NodePath("../back")
+
+[node name="option_text" type="Label" parent="main_menu/simple_select/group_one/music_volume"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 10
+text = "music"
+
+[node name="icon_point" type="Node2D" parent="main_menu/simple_select/group_one/music_volume"]
+position = Vector2(-7, 8)
+
+[node name="back" type="Node2D" parent="main_menu/simple_select/group_one" node_paths=PackedStringArray("icon_point", "option_label", "up_option")]
+position = Vector2(153, 176)
+script = ExtResource("4_m56pt")
+icon_point = NodePath("icon_point")
+option_label = NodePath("option_text")
+option_name = "quit"
+up_option = NodePath("../music_volume")
+
+[node name="option_text" type="Label" parent="main_menu/simple_select/group_one/back"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 10
+text = "back
+"
+
+[node name="icon_point" type="Node2D" parent="main_menu/simple_select/group_one/back"]
+position = Vector2(-7, 8)
+
+[node name="icon" type="AnimatedSprite2D" parent="main_menu/simple_select"]
+sprite_frames = SubResource("SpriteFrames_0wb2l")
+
+[node name="temp_icon" type="ColorRect" parent="main_menu/simple_select/icon"]
+offset_right = 4.0
+offset_bottom = 4.0
+
+[node name="scene_module" parent="main_menu" instance=ExtResource("5_2xpqy")]
+link = SubResource("Resource_80ng3")
+
+[connection signal="activated" from="main_menu/simple_select/group_one/back" to="." method="_on_back_activated"]

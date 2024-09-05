@@ -1,0 +1,20 @@
+
+not going to be as bad as i thought now that im using enumerators, but the dictionaries will still be annoying.
+
+OPEN_TEXT_BOX - opens the text box. 
+no parameters
+
+CLOSE_TEXT_BOX - closes the text box. 
+no parameters
+
+UPDATE_TEXT - adds text to the text queue. process loop writes 1 char every delta_char frames.
+"text" - text to be written, contains string
+"dont_clear" - indicates whether to clear previous text. if not present, text will be cleared
+"delta_char" - # of frames to wait between each new character.
+"char_sf" - sound effect to play when each new character is placed.
+
+CHANGE_COLOR
+"color" - color to change the text to.
+
+WAIT_FOR_ADVANCE - indicates to wait for player input to advance to the next command.
+no parameters

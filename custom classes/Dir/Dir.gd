@@ -10,7 +10,7 @@ enum Dir8 {U = 0, D = 1, L = 2, R = 3, UL = 4, UR = 5, DL = 6, DR = 7, NONE = 8,
 
 #directions to other sorts of measurements
 
-static func dir4_to_uvec( dir : Dir4 ) -> Vector2:
+static func dir4_to_uvec( dir : Dir4 ) -> Vector2i:
 	match dir:
 		Dir4.UP:
 			return Vector2(0,1)
@@ -44,7 +44,7 @@ static func dir4_to_dir8( vec : Dir4 ) -> Dir8:
 		_:
 			return Dir8.INVALID
 			
-static func uvec_to_dir4( vec : Vector2 ) -> Dir4:
+static func uvec_to_dir4( vec : Vector2i ) -> Dir4:
 	match vec:
 		Vector2(0,1):
 			return Dir4.UP
@@ -60,7 +60,7 @@ static func uvec_to_dir4( vec : Vector2 ) -> Dir4:
 			print("uvec to dir received a non unit vector, returning none.")
 			return Dir4.NONE
 	
-static func uvec_to_dir8( vec : Vector2 ) -> Dir8:
+static func uvec_to_dir8( vec : Vector2i ) -> Dir8:
 	match vec:
 		Vector2(0,0):
 			return Dir8.NONE
@@ -83,7 +83,7 @@ static func uvec_to_dir8( vec : Vector2 ) -> Dir8:
 		_:
 			return Dir8.INVALID
 			
-static func dir8_to_uvec( vec : Dir8 ) -> Vector2:
+static func dir8_to_uvec( vec : Dir8 ) -> Vector2i:
 	
 	match vec:
 		Dir8.U:

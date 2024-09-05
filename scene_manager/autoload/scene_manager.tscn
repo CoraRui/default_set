@@ -1,19 +1,32 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3kdku3xfhkjv"]
+[gd_scene load_steps=13 format=3 uid="uid://d3kdku3xfhkjv"]
 
 [ext_resource type="Script" path="res://scene_manager/autoload/scene_manager.gd" id="1_s3dc7"]
+[ext_resource type="PackedScene" uid="uid://bbwg6uxy46a58" path="res://scene_manager/scenes/main_menu/intro/intro.tscn" id="2_s1om1"]
 [ext_resource type="PackedScene" uid="uid://codvl85nwej6d" path="res://scene_manager/scenes/test_scene.tscn" id="2_tmlig"]
 [ext_resource type="Script" path="res://scene_manager/resource/scene.gd" id="3_oysdi"]
-[ext_resource type="PackedScene" uid="uid://bjffaorm0704" path="res://scene_manager/scenes/test_scene_2.tscn" id="4_xodmb"]
+[ext_resource type="PackedScene" uid="uid://bf58yww00ho3i" path="res://scene_manager/scenes/main_menu/title_screen/title.tscn" id="4_hpef4"]
+[ext_resource type="PackedScene" uid="uid://gihp7u0yj5x0" path="res://scene_manager/scenes/main_menu/start_menu/start.tscn" id="5_yfjj1"]
+[ext_resource type="PackedScene" uid="uid://c5jk4ln62o20c" path="res://scene_manager/scenes/main_menu/settings_menu/settings.tscn" id="6_4v74d"]
 
 [sub_resource type="Resource" id="Resource_xanhw"]
 script = ExtResource("3_oysdi")
-scene_name = "main_menu"
-scene_ref = ExtResource("2_tmlig")
+scene_name = "intro"
+scene_ref = ExtResource("2_s1om1")
 
 [sub_resource type="Resource" id="Resource_t4f3d"]
 script = ExtResource("3_oysdi")
-scene_name = "test_scene_2"
-scene_ref = ExtResource("4_xodmb")
+scene_name = "title"
+scene_ref = ExtResource("4_hpef4")
+
+[sub_resource type="Resource" id="Resource_uokr7"]
+script = ExtResource("3_oysdi")
+scene_name = "start"
+scene_ref = ExtResource("5_yfjj1")
+
+[sub_resource type="Resource" id="Resource_6s5bb"]
+script = ExtResource("3_oysdi")
+scene_name = "settings"
+scene_ref = ExtResource("6_4v74d")
 
 [sub_resource type="Resource" id="Resource_tfkmx"]
 script = ExtResource("3_oysdi")
@@ -22,5 +35,5 @@ scene_ref = ExtResource("2_tmlig")
 
 [node name="scene_manager" type="Node2D"]
 script = ExtResource("1_s3dc7")
-scene_arr = Array[ExtResource("3_oysdi")]([SubResource("Resource_xanhw"), SubResource("Resource_t4f3d")])
+scene_arr = Array[ExtResource("3_oysdi")]([SubResource("Resource_xanhw"), SubResource("Resource_t4f3d"), SubResource("Resource_uokr7"), SubResource("Resource_6s5bb")])
 fail_scene = SubResource("Resource_tfkmx")

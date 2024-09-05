@@ -22,15 +22,6 @@ class_name save_manager
 func _ready():
 	if !load_game():
 		file_01 = save_file.new()
-
-func dict_to_file(sd : Dictionary) -> save_file:
-	#converts the passed dictionary into save_file format
-	var new_file : save_file = save_file.new()
-	
-	new_file.player_name = sd["player_name"]
-	new_file.health = sd["health"]
-	
-	return new_file
 	
 func save_game() -> void:
 	#saves the current save file in file 01 to the desired user directory

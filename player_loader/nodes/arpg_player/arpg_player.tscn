@@ -1,0 +1,204 @@
+[gd_scene load_steps=18 format=3 uid="uid://c4r78gu7wvy0r"]
+
+[ext_resource type="Script" path="res://player_loader/nodes/arpg_player/arpg_player.gd" id="1_ntlke"]
+[ext_resource type="Texture2D" uid="uid://bxywqlm5csia5" path="res://raw_assets/test_sprites/arpg_player/bub.png" id="2_1y3ll"]
+[ext_resource type="Script" path="res://movement+collision/collision_box/collision_box.gd" id="3_x7ua1"]
+[ext_resource type="PackedScene" uid="uid://dommtub08wbvt" path="res://player_loader/nodes/arpg_player/sword/sword.tscn" id="4_l766f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spdqs"]
+atlas = ExtResource("2_1y3ll")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjtry"]
+atlas = ExtResource("2_1y3ll")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uy70x"]
+atlas = ExtResource("2_1y3ll")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fr6o7"]
+atlas = ExtResource("2_1y3ll")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b77yx"]
+atlas = ExtResource("2_1y3ll")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6etv"]
+atlas = ExtResource("2_1y3ll")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2omd"]
+atlas = ExtResource("2_1y3ll")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63o2e"]
+atlas = ExtResource("2_1y3ll")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_58wg1"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"act_down",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"act_left",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"act_right",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"act_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spdqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjtry")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uy70x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fr6o7")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b77yx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6etv")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2omd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63o2e")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_grlkt"]
+size = Vector2(10, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_som5s"]
+size = Vector2(10, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0iv73"]
+size = Vector2(3, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ny2fv"]
+size = Vector2(3, 7)
+
+[node name="arpg_player" type="Node2D" node_paths=PackedStringArray("m_node", "player_anim", "col_box")]
+script = ExtResource("1_ntlke")
+m_node = NodePath(".")
+player_anim = NodePath("player_anim")
+col_box = NodePath("collision_box")
+
+[node name="player_anim" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_58wg1")
+animation = &"act_right"
+
+[node name="collision_box" type="Node2D" parent="." node_paths=PackedStringArray("up_area", "down_area", "left_area", "right_area")]
+script = ExtResource("3_x7ua1")
+up_area = NodePath("up_area")
+down_area = NodePath("down_area")
+left_area = NodePath("left_area")
+right_area = NodePath("right_area")
+
+[node name="up_area" type="Area2D" parent="collision_box"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="up_shape" type="CollisionShape2D" parent="collision_box/up_area"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_grlkt")
+
+[node name="down_area" type="Area2D" parent="collision_box"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="down_shape" type="CollisionShape2D" parent="collision_box/down_area"]
+position = Vector2(0, 8.5)
+shape = SubResource("RectangleShape2D_som5s")
+
+[node name="left_area" type="Area2D" parent="collision_box"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="left_shape" type="CollisionShape2D" parent="collision_box/left_area"]
+position = Vector2(-6.5, 3.5)
+shape = SubResource("RectangleShape2D_0iv73")
+
+[node name="right_area" type="Area2D" parent="collision_box"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="right_shape" type="CollisionShape2D" parent="collision_box/right_area"]
+position = Vector2(6.5, 3.5)
+shape = SubResource("RectangleShape2D_ny2fv")
+
+[node name="sword" parent="." node_paths=PackedStringArray("sword_spots") instance=ExtResource("4_l766f")]
+sword_spots = [NodePath("../spots/up"), NodePath("../spots/down"), NodePath("../spots/left"), NodePath("../spots/right")]
+
+[node name="spots" type="Node2D" parent="."]
+
+[node name="up" type="Node2D" parent="spots"]
+
+[node name="down" type="Node2D" parent="spots"]
+
+[node name="left" type="Node2D" parent="spots"]
+
+[node name="right" type="Node2D" parent="spots"]
+
+[connection signal="down_entered" from="collision_box" to="." method="_on_collision_box_down_entered"]
+[connection signal="down_exited" from="collision_box" to="." method="_on_collision_box_down_exited"]
+[connection signal="left_entered" from="collision_box" to="." method="_on_collision_box_left_entered"]
+[connection signal="left_exited" from="collision_box" to="." method="_on_collision_box_left_exited"]
+[connection signal="right_entered" from="collision_box" to="." method="_on_collision_box_right_entered"]
+[connection signal="right_exited" from="collision_box" to="." method="_on_collision_box_right_exited"]
+[connection signal="up_entered" from="collision_box" to="." method="_on_collision_box_up_entered"]
+[connection signal="up_exited" from="collision_box" to="." method="_on_collision_box_up_exited"]
+[connection signal="area_entered" from="collision_box/up_area" to="collision_box" method="_on_up_area_area_entered"]
+[connection signal="area_exited" from="collision_box/up_area" to="collision_box" method="_on_up_area_area_exited"]
+[connection signal="body_entered" from="collision_box/up_area" to="collision_box" method="_on_up_area_body_entered"]
+[connection signal="body_exited" from="collision_box/up_area" to="collision_box" method="_on_up_area_body_exited"]
+[connection signal="area_entered" from="collision_box/down_area" to="collision_box" method="_on_down_area_area_entered"]
+[connection signal="area_exited" from="collision_box/down_area" to="collision_box" method="_on_down_area_area_exited"]
+[connection signal="body_entered" from="collision_box/down_area" to="collision_box" method="_on_down_area_body_entered"]
+[connection signal="body_exited" from="collision_box/down_area" to="collision_box" method="_on_down_area_body_exited"]
+[connection signal="area_entered" from="collision_box/left_area" to="collision_box" method="_on_left_area_area_entered"]
+[connection signal="area_exited" from="collision_box/left_area" to="collision_box" method="_on_left_area_area_exited"]
+[connection signal="body_entered" from="collision_box/left_area" to="collision_box" method="_on_left_area_body_entered"]
+[connection signal="body_exited" from="collision_box/left_area" to="collision_box" method="_on_left_area_body_exited"]
+[connection signal="area_entered" from="collision_box/right_area" to="collision_box" method="_on_right_area_area_entered"]
+[connection signal="area_exited" from="collision_box/right_area" to="collision_box" method="_on_right_area_area_exited"]
+[connection signal="body_entered" from="collision_box/right_area" to="collision_box" method="_on_right_area_body_entered"]
+[connection signal="body_exited" from="collision_box/right_area" to="collision_box" method="_on_right_area_body_exited"]

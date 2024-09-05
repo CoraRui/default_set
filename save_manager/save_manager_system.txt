@@ -1,12 +1,11 @@
 
 
 the save_manager autoload holds a instance of "save_file". this is the main save file for the game.
-i might add support for multiple save files of different names eventually. but i really dont think its necessary and itll be
-more complicated than it needs to be.
-although i might need to have some sort of system for the main settings.
- anyways, it holds an instance of save file. when save_game is called, it takes that file, serializes it, and saves it to the 
+ when save_game is called, it takes that file, serializes it, and saves it to the 
 specified save directory. when load_game is called, the directory is searched, the dict is reverted to save_file format, and 
 put into file_01. the definition for the values in save file are held in save_file, as well as how it translates to dictionary.
+so when you make changes to the save file you gotta change the save file and the save manager and how it translates to/from
+save_file to dict.
 
 
 save_manager autoload - contains save/load functions and current save file

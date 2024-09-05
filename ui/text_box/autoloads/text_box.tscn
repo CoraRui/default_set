@@ -11,10 +11,11 @@ spacing_glyph = -2
 spacing_space = -4
 spacing_top = 3
 
-[node name="text_box" type="Node2D" node_paths=PackedStringArray("main_label")]
-visible = false
+[node name="text_box" type="Node2D" node_paths=PackedStringArray("main_label", "box_anim", "delay_timer")]
 script = ExtResource("1_nl2j6")
 main_label = NodePath("main_label")
+box_anim = NodePath("text_box")
+delay_timer = NodePath("delay_timer")
 delta_char = 5
 
 [node name="text_box" type="AnimatedSprite2D" parent="."]
@@ -42,3 +43,6 @@ theme_override_fonts/font = SubResource("FontVariation_t8io0")
 theme_override_font_sizes/font_size = 8
 text = "default text"
 autowrap_mode = 2
+
+[node name="delay_timer" type="Timer" parent="."]
+one_shot = true

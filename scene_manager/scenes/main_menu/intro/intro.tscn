@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=3 uid="uid://bbwg6uxy46a58"]
+
+[ext_resource type="Script" path="res://scene_manager/scenes/main_menu/intro/intro.gd" id="1_j2ff3"]
+[ext_resource type="Script" path="res://scene_manager/resource/scene_link.gd" id="2_u26ri"]
+[ext_resource type="PackedScene" uid="uid://bkal3ic4bccmv" path="res://ui/text_box/nodes/text_module.tscn" id="3_rhvwh"]
+[ext_resource type="Script" path="res://ui/text_box/resources/command_set.gd" id="4_0urmp"]
+
+[sub_resource type="Resource" id="Resource_86mq6"]
+script = ExtResource("2_u26ri")
+scene_name = "title"
+
+[sub_resource type="Resource" id="Resource_30xb7"]
+script = ExtResource("4_0urmp")
+comm = 0
+par_dict = {}
+
+[sub_resource type="Resource" id="Resource_w0c4k"]
+script = ExtResource("4_0urmp")
+comm = 2
+par_dict = {
+"delta_char": 5,
+"text": "there were humans and monsters"
+}
+
+[sub_resource type="Resource" id="Resource_3j7yr"]
+script = ExtResource("4_0urmp")
+comm = 5
+par_dict = {
+"time": 5.0
+}
+
+[node name="intro" type="Node2D"]
+script = ExtResource("1_j2ff3")
+title_link = SubResource("Resource_86mq6")
+
+[node name="text_module" parent="." instance=ExtResource("3_rhvwh")]
+send_on_ready = true
+c_set = Array[ExtResource("4_0urmp")]([SubResource("Resource_30xb7"), SubResource("Resource_w0c4k"), SubResource("Resource_3j7yr")])

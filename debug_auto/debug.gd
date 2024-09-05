@@ -52,7 +52,11 @@ func _input(event):
 		
 func db_print(m : String, t : String) -> void:
 	#prints an error message, but only if the tag is active.
-	if !tag_dict[t]:
+	#if the tag dict doesnt have the tag, send the error but with exclamaiton mark
+	if !tag_dict.has(t):
+		print("!", t, ";", m)
 		return
 	
-	print(t, ": ", m)
+	#if the tag is disabled, dont send the message.
+	if tag_dict[t]:
+		print(t, ": ", m)

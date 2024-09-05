@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dommtub08wbvt"]
+
+[ext_resource type="Script" path="res://player_loader/nodes/arpg_player/sword/sword.gd" id="1_iwrjo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sp3mp"]
+size = Vector2(3, 8)
+
+[node name="sword" type="Node2D" node_paths=PackedStringArray("sword_spots", "sword_node")]
+script = ExtResource("1_iwrjo")
+sword_spots = [null, null, null, null]
+sword_node = NodePath("sword")
+
+[node name="sword" type="Node2D" parent="."]
+
+[node name="sword_sprite" type="Sprite2D" parent="sword"]
+
+[node name="sword_area" type="Area2D" parent="sword"]
+
+[node name="sword_shape" type="CollisionShape2D" parent="sword/sword_area"]
+position = Vector2(-0.5, -4)
+shape = SubResource("RectangleShape2D_sp3mp")
+
+[node name="sword_rect" type="ColorRect" parent="sword"]
+offset_left = -2.0
+offset_top = -8.0
+offset_right = 1.0

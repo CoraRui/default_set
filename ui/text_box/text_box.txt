@@ -1,5 +1,4 @@
 gonna be an autoload that has functions for displaying text. update text, using sounds, changing the text box,
 etc etc.
 
-
-I need a command list somewhere so i dont forget.
+good enough for now. worst case i can just add more during the jam
