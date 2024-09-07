@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctsovvrh5onfc"]
+
+[ext_resource type="Script" path="res://enemy_loader/autoloads/enemy_loader.gd" id="1_2j04y"]
+[ext_resource type="PackedScene" uid="uid://cdfp2cnk6fxw3" path="res://enemy_loader/enemies/test_enemy/test_enemy.tscn" id="2_4fk6y"]
+[ext_resource type="Script" path="res://enemy_loader/resources/enemy_reference.gd" id="2_bwmwh"]
+
+[sub_resource type="Resource" id="Resource_qucww"]
+script = ExtResource("2_bwmwh")
+enemy_name = "test_enemy"
+enemy_ref = ExtResource("2_4fk6y")
+
+[sub_resource type="Resource" id="Resource_7iexg"]
+script = ExtResource("2_bwmwh")
+enemy_name = "test_enemy"
+enemy_ref = ExtResource("2_4fk6y")
+
+[node name="enemy_loader" type="Node2D" node_paths=PackedStringArray("delay_timer")]
+script = ExtResource("1_2j04y")
+enemy_arr = Array[ExtResource("2_bwmwh")]([SubResource("Resource_qucww")])
+fail_ref = SubResource("Resource_7iexg")
+delay_timer = NodePath("delay_timer")
+
+[node name="delay_timer" type="Timer" parent="."]

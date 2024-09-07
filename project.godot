@@ -27,6 +27,8 @@ player_loader_auto="*res://player_loader/autoloads/player_loader/player_loader.t
 simple_fx_auto="*res://simple_fx/autoloads/simple_fx.tscn"
 screen_fx_auto="*res://screen_fx/autoloads/screen_fx.tscn"
 text_box_auto="*res://ui/text_box/autoloads/text_box.tscn"
+enemy_loader_auto="*res://enemy_loader/autoloads/enemy_loader.tscn"
+score_manager_auto="*res://ui/score_manager/autoload/score_manager.tscn"
 
 [display]
 

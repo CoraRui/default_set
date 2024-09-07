@@ -13,7 +13,7 @@ active_group = NodePath("group_one")
 icon = NodePath("icon")
 
 [node name="group_one" parent="." node_paths=PackedStringArray("options") instance=ExtResource("2_l4jso")]
-options = [NodePath("option_one"), NodePath(""), NodePath(""), NodePath("")]
+options = [NodePath("option_one"), null, null, null]
 
 [node name="option_one" parent="group_one" node_paths=PackedStringArray("up_option", "down_option") instance=ExtResource("3_fw5uv")]
 up_option = NodePath("../option_four")

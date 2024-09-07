@@ -1,6 +1,9 @@
 extends Node2D
 class_name screen_fx
 
+
+#TODO: should probably do some stuff to this, not entirely sure how ready this is.
+
 @export var screen_rect : ColorRect					#white colorRect covering the whole screen
 
 #fade to white

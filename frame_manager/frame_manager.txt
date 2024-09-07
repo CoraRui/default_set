@@ -1,0 +1,1 @@
+want some sort of class to deal with instances where i want to "skip frames" not rn ill figure it out later

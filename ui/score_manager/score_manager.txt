@@ -1,0 +1,9 @@
+
+
+	a simple autoload that can be built upon for keeping score.
+	
+	for now, its just a label in the top of the screen, with the score value kept in the autoload itself.
+	
+	theres a node that i can just tack on to whatever enemies/obstacles/whatever things i want to add to the score, and activate 
+	
+	with probably some sort of signal. or i can just have a line of code in the script of whatever thing needs to use it.

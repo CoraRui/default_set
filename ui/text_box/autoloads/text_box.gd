@@ -3,6 +3,9 @@ class_name text_box
 
 #autoload with functions for displaying text
 
+#TODO: should be ok for now
+
+
 enum TComm  {OPEN_TEXT_BOX, CLOSE_TEXT_BOX, UPDATE_TEXT, CHANGE_COLOR, WAIT_FOR_ADVANCE,
 DELAY_NEXT, PLAY_TRACK}
 
@@ -79,15 +82,14 @@ func execute_command( c_set : command_set) -> void:
 		next_command()
 	
 func advance() -> void:
-	#TODO: advance definition. could technically just be next command for now, but
-	#eventually ill need some things to check whether the player can advance the text or not.
-	#also different options to advance text, like advance/skip
+	#TODO:just triggers the next command for now, but eventually there might be checks for when the player can advance text.
+	#like a time limit between skips,  or a character count minimum or something.
 	next_command()
 	
 func next_char() -> void:
-	#TODO: next char definition
 	#this function should check each frame if theres more text to display, and increment the frame count/
 	#add the next character if necessary
+	
 	if text_queue.length() == 0:
 		return
 	
@@ -100,18 +102,18 @@ func next_char() -> void:
 	
 #command definitions
 func open_text_box(_p : Dictionary) -> void:
-	#TODO: opent_text_box() definition
+	#just toggles visibility for now, not sure what else.
 	set_visible(true)
 	main_label.text = ""
 
 func close_text_box(_p : Dictionary) -> void:
-	#TODO: close_text_box definition
+	#just does visibility and clears text.
+	#also clears the text queue. so that sounds dont play/add text after closed.
 	set_visible(false)
 	main_label.text = ""
 	text_queue = ""
 
 func update_text(p : Dictionary) -> void:
-	#TODO: update_text() definition
 	#adds the values to the global variables so the process loop will update the text each frame as needed.
 	#parameter keys:
 	#clear - clears the text, mostly for clearing before new text.
@@ -131,7 +133,6 @@ func update_text(p : Dictionary) -> void:
 		char_sf = p["char_sf"]
 	
 func change_color(p : Dictionary) -> void:
-	#TODO: change_color() definition
 	#parameter keys:
 	#color - a color to change the text to.
 	if p.has("color"):
@@ -141,14 +142,14 @@ func change_color(p : Dictionary) -> void:
 	
 func play_track(p : Dictionary) -> void:
 	#"track" = music_link
-	
 	if p.has("track"):
 		music_pi.play_track(p["track"])
 	else:
 		debug_i.db_print("tried to play track without music link. this is concerning", "txt_box")
 	
 func wait_for_advance(_p : Dictionary) -> void:
-	#TODO: wait_for_advance definition. not sure i need this, but ill keep it.
+	#wait for advance shouldnt need a member function the way it is
+	#ill keep this just in case.
 	pass
 	
 func delay_next(p : Dictionary) -> void:

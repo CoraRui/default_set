@@ -3,10 +3,11 @@ class_name player_loader
 
 #loads the player in and out of the scene. not sure how this will really be much different from the scene loader.
 
+#TODO: its a little dry, but there are probably more features to add
+
+
 @export var player_ref : PackedScene
-
 @export var player_ins : Node2D
-
 @onready var debug_i : debug = get_node("/root/debug_auto")
 
 func load_player():

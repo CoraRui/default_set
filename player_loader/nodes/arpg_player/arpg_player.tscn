@@ -166,6 +166,7 @@ position = Vector2(6.5, 3.5)
 shape = SubResource("RectangleShape2D_ny2fv")
 
 [node name="sword" parent="." node_paths=PackedStringArray("sword_spots") instance=ExtResource("4_l766f")]
+visible = false
 sword_spots = [NodePath("../spots/up"), NodePath("../spots/down"), NodePath("../spots/left"), NodePath("../spots/right")]
 
 [node name="spots" type="Node2D" parent="."]

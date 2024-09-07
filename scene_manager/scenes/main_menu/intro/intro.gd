@@ -14,7 +14,7 @@ class_name intro_scene
 func _ready():
 	pass
 
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("action"):
 		scene_mi.load_scene(title_link)
 

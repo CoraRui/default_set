@@ -15,7 +15,5 @@ extends Node2D
 func _ready():
 	scene_mi.load_scene(init_scene)
 	
-	#testing text_box
-	
 	
 	

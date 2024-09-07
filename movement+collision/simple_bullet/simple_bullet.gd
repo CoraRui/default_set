@@ -1,8 +1,8 @@
 extends Node2D
 class_name simple_bullet
 
-#TODO: add more functionality to the simple bullet class
-#TODO: how does acceleration actually effect velocity? how can i use acceleration on frame skips?
+#TODO: needs more work i think idk
+
 
 #so i fixed the acceleration! by removing it... i just dont think it would work with the whole frame skipping thing.
 #so ill just do the accelerations manually by changing the velocity at certain points.

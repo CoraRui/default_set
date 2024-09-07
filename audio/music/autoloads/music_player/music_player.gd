@@ -1,19 +1,12 @@
 extends Node2D
 class_name music_player
 
-#should have functions to call to play music. will probably work with a music_trigger node which i can put onto various stuff
-#to trigger music changes and stuff.
+#contains functions to play music using the music_link resource type.
+#plays one track at a time. playing a new track will start a different track.
 
-#ok so in terms of how im storing the tracks, im thinking about doing some sort of parent thing where i store a track in each node.
-#but thats a pain. i was originally just using dictionaries its just that a lot of times they're laggy asf.
-#soo... ill use an array. it sucks that i cant just use by dictionary its just that i cant type dictionaries so 
-#i need to just use my own type. i mean, im assuming thats what dictionaries do anyways, right? im not going to bother with
-#efficient searches or anything though.
-#i kind of want to write my own class for searching through arrays by looking for certain things. but...
-#if im looking for something like a custom resource type, id have to look for a specific value in that resource.
-#like with the music link, id have to look for that specific music link rather than for just an element in it to be equivalent.
-#theres more to consider, but i think a thing like that would be more annoying work than i wanna do over something as simple as this.
-#anyways.
+#TODO: needs more work
+#TODO: transitions between songs.
+
 
 #audiostreamplayer node that plays the music
 @export var stream_player : AudioStreamPlayer
@@ -27,8 +20,11 @@ class_name music_player
 func play_track(ml : music_link) -> void:
 	#TODO: check for same track? maybe restart on same track should be a parameter...
 	#TODO: adjustment of volume/delay from music link
-	stream_player.stream = find_track(ml).music_file
-	if stream_player.stream != null:
+	
+	var new_track : AudioStreamOggVorbis = find_track(ml).music_file
+	
+	if stream_player.stream != null && stream_player.stream != new_track :
+		stream_player.stream = new_track
 		stream_player.play()
 
 func pause_track() -> void:
@@ -42,7 +38,6 @@ func start_track() -> void:
 		debug_i.db_print("tried to start track with no current track", "mus_pla")
 		return
 		
-	
 func stop_track() -> void:
 	#should just stop the track from playing and clear the stream
 	stream_player.stop()

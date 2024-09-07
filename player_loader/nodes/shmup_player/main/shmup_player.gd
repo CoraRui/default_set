@@ -1,15 +1,14 @@
 extends Node2D
-class_name arpg_player
+class_name shmup_player
 
-#movement script/player object for a typical arpg player.
-#4 directional movement, collision box for walls, sword eventually
+#TODO: make the whole thing. this is pretty essential actually, do this soon
 
-#TODO: add sword functionality
-
+#input will be pretty similar to arpg player i think actually. right? its mostly the animation level design and 
+#attack mechanism thats different
 
 @export var m_node : Node2D
 @export var v_vec : Vector2i = Vector2i(1,1)		#number of pixels to move each movement
-@export var v_skip : Vector2i = Vector2i(1,1)		#number of frames to wait before moving
+@export var v_skip : Vector2i = Vector2i(2,2)		#number of frames to wait before moving
 var point_dir : Vector2i = Vector2i(0,0)
 
 #frame counting - counts frames up to an arbitrary amount to skip movement frames
@@ -55,49 +54,11 @@ func collect_input(e : InputEvent):
 		player_anim.stop()
 	
 	if Input.is_action_pressed("up"):
-		point_dir = Vector2i(0,-1)
-		player_anim.play("walk_up")
+		point_dir.y = -1
 	if Input.is_action_pressed("down"):
-		point_dir = Vector2(0,1)
-		player_anim.play("walk_down")
+		point_dir.y = 1
 	if Input.is_action_pressed("left"):
-		point_dir = Vector2(-1,0)
-		player_anim.play("walk_left")
+		point_dir.x = -1
 	if Input.is_action_pressed("right"):
-		point_dir = Vector2(1,0)
-		player_anim.play("walk_right")
+		point_dir.x = 1
 	
-#region collision signals
-	
-#enter signals
-func _on_collision_box_up_entered():
-	pass # Replace with function body.
-
-func _on_collision_box_down_entered():
-	pass # Replace with function body.
-
-func _on_collision_box_left_entered():
-	pass # Replace with function body.
-
-func _on_collision_box_right_entered():
-	pass # Replace with function body.
-
-
-#exit signals
-func _on_collision_box_up_exited():
-	pass # Replace with function body.
-
-func _on_collision_box_down_exited():
-	pass # Replace with function body.
-
-func _on_collision_box_left_exited():
-	pass # Replace with function body.
-
-func _on_collision_box_right_exited():
-	pass # Replace with function body.
-
-#endregion
-
-
-
-

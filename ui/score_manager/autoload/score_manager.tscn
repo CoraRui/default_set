@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbc8r4powg2qy"]
+
+[ext_resource type="Script" path="res://ui/score_manager/autoload/score_manager.gd" id="1_to1tb"]
+
+[node name="score_manager" type="Node2D" node_paths=PackedStringArray("score_label")]
+script = ExtResource("1_to1tb")
+score_label = NodePath("score_label")
+
+[node name="score_label" type="Label" parent="."]
+offset_left = 85.0
+offset_top = 2.0
+offset_right = 215.0
+offset_bottom = 22.0
+theme_override_font_sizes/font_size = 10
+text = "0000000000"
+horizontal_alignment = 1
+vertical_alignment = 1

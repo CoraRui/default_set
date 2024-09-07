@@ -6,6 +6,8 @@ class_name simple_select
 #directional keys up down left and right.
 #each option may lead to another group being activated.
 
+#TODO: seems ok for now. its been working at least.
+
 #currently selected option
 @export var active_option : option
 

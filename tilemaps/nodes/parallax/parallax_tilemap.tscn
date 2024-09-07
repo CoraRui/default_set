@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://qcrd1picr8j3"]
+
+[ext_resource type="Script" path="res://tilemaps/nodes/parallax/parallax_tilemap.gd" id="1_fdjp6"]
+
+[node name="parallax_tilemap" type="Node2D"]
+script = ExtResource("1_fdjp6")

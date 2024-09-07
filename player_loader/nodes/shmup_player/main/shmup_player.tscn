@@ -1,0 +1,108 @@
+[gd_scene load_steps=12 format=3 uid="uid://bsil1jov41qpi"]
+
+[ext_resource type="Script" path="res://player_loader/nodes/shmup_player/main/shmup_player.gd" id="1_lpbq4"]
+[ext_resource type="Texture2D" uid="uid://kw23a1ib3sp2" path="res://raw_assets/test_sprites/test_ship/rocket.png" id="2_nmlhc"]
+[ext_resource type="Script" path="res://movement+collision/collision_box/collision_box.gd" id="3_xjy7j"]
+[ext_resource type="Script" path="res://player_loader/nodes/shmup_player/laser_gun/laser_gun.gd" id="4_8080f"]
+[ext_resource type="PackedScene" uid="uid://ntkyekpbo2t5" path="res://player_loader/nodes/shmup_player/laser_gun/laser_beam.tscn" id="5_kaafp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cslgb"]
+atlas = ExtResource("2_nmlhc")
+region = Rect2(0, 0, 7, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0mwtu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cslgb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_grlkt"]
+size = Vector2(16, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_som5s"]
+size = Vector2(16, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0iv73"]
+size = Vector2(3, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ny2fv"]
+size = Vector2(3, 14)
+
+[node name="shmup_player" type="Node2D" node_paths=PackedStringArray("m_node", "player_anim", "col_box")]
+script = ExtResource("1_lpbq4")
+m_node = NodePath(".")
+v_skip = Vector2i(1, 1)
+player_anim = NodePath("player_anim")
+col_box = NodePath("collision_box")
+
+[node name="player_anim" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0mwtu")
+offset = Vector2(0.5, 0)
+
+[node name="collision_box" type="Node2D" parent="." node_paths=PackedStringArray("up_area", "down_area", "left_area", "right_area")]
+script = ExtResource("3_xjy7j")
+up_area = NodePath("up_area")
+down_area = NodePath("down_area")
+left_area = NodePath("left_area")
+right_area = NodePath("right_area")
+
+[node name="up_area" type="Area2D" parent="collision_box"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="up_shape" type="CollisionShape2D" parent="collision_box/up_area"]
+position = Vector2(0, -8.5)
+shape = SubResource("RectangleShape2D_grlkt")
+
+[node name="down_area" type="Area2D" parent="collision_box"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="down_shape" type="CollisionShape2D" parent="collision_box/down_area"]
+position = Vector2(0, 8.5)
+shape = SubResource("RectangleShape2D_som5s")
+
+[node name="left_area" type="Area2D" parent="collision_box"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="left_shape" type="CollisionShape2D" parent="collision_box/left_area"]
+position = Vector2(-9.5, 0)
+shape = SubResource("RectangleShape2D_0iv73")
+
+[node name="right_area" type="Area2D" parent="collision_box"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="right_shape" type="CollisionShape2D" parent="collision_box/right_area"]
+position = Vector2(9.5, 0)
+shape = SubResource("RectangleShape2D_ny2fv")
+
+[node name="laser_gun" type="Node2D" parent="." node_paths=PackedStringArray("bullet_point")]
+script = ExtResource("4_8080f")
+bullet_ref = ExtResource("5_kaafp")
+bullet_point = NodePath("bullet_point")
+
+[node name="bullet_point" type="Node2D" parent="laser_gun"]
+
+[connection signal="area_entered" from="collision_box/up_area" to="collision_box" method="_on_up_area_area_entered"]
+[connection signal="area_exited" from="collision_box/up_area" to="collision_box" method="_on_up_area_area_exited"]
+[connection signal="body_entered" from="collision_box/up_area" to="collision_box" method="_on_up_area_body_entered"]
+[connection signal="body_exited" from="collision_box/up_area" to="collision_box" method="_on_up_area_body_exited"]
+[connection signal="area_entered" from="collision_box/down_area" to="collision_box" method="_on_down_area_area_entered"]
+[connection signal="area_exited" from="collision_box/down_area" to="collision_box" method="_on_down_area_area_exited"]
+[connection signal="body_entered" from="collision_box/down_area" to="collision_box" method="_on_down_area_body_entered"]
+[connection signal="body_exited" from="collision_box/down_area" to="collision_box" method="_on_down_area_body_exited"]
+[connection signal="area_entered" from="collision_box/left_area" to="collision_box" method="_on_left_area_area_entered"]
+[connection signal="area_exited" from="collision_box/left_area" to="collision_box" method="_on_left_area_area_exited"]
+[connection signal="body_entered" from="collision_box/left_area" to="collision_box" method="_on_left_area_body_entered"]
+[connection signal="body_exited" from="collision_box/left_area" to="collision_box" method="_on_left_area_body_exited"]
+[connection signal="area_entered" from="collision_box/right_area" to="collision_box" method="_on_right_area_area_entered"]
+[connection signal="area_exited" from="collision_box/right_area" to="collision_box" method="_on_right_area_area_exited"]
+[connection signal="body_entered" from="collision_box/right_area" to="collision_box" method="_on_right_area_body_entered"]
+[connection signal="body_exited" from="collision_box/right_area" to="collision_box" method="_on_right_area_body_exited"]

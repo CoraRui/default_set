@@ -4,6 +4,9 @@ class_name scene_manager
 #basic loading in and out of scenes to the root node. or to this node idk.
 #can reload duplicates. cause idk why not
 
+#TODO: has been working pretty well, not gonna fuck with it
+
+
 
 @export var current_scene : Node2D
 

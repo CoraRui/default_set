@@ -26,8 +26,9 @@ signal unselected
 @export_group("","")
 
 func _ready():
-	#TODO: manually export icon points in file creator
 	icon_point = get_child(1)
 
 func activate():
 	activated.emit()
+
+

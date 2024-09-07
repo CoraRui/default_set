@@ -8,6 +8,8 @@ class_name save_manager
 #into it and just use that as the save file. but how many save files will there be? do i need separate save files for
 #multiple things? :I lets just figure out the basics first...
 
+#TODO: works well i think, just gotta double check make sure that i understand the file save locations well and
+#what i need to change in order to actually change save file values. and choose a cool filename lol
 
 @export var file_01 : save_file			#main save file
 
